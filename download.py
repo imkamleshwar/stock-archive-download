@@ -1,6 +1,7 @@
 import os
 from datetime import datetime
 from pathlib import Path
+from threading import Timer
 
 import numpy as np
 import pandas as pd
@@ -114,5 +115,10 @@ def create():
     return render_template('download.html', data="")
 
 
+def open_browser():
+    os.system('google-chrome --incognito http://localhost:5000/download')
+
+
 if __name__ == '__main__':
+    Timer(1, open_browser).start()
     app.run(debug=False)
